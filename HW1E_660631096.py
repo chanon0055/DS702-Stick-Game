@@ -20,23 +20,24 @@ def player_turn():
     global st_take, st_all
     st_take = int(input(user_name + ",how many sticks you will take (1 or 2):"))
     if st_take >= 3 :
-            print("No you cannot take more than 2 sticks!")
-            print()
+        print("No you cannot take more than 2 sticks!")
+        print()
     elif st_take <= 0 :
-            print("No you cannot take less than 1 skick!")
-            print()
+        print("No you cannot take less than 1 skick!")
+        print()
     elif (st_all - st_take) < 0 :
-            print("Threr are no enough sticks to take.")
-            print("\n")
+        print("Threr are no enough sticks to take.")
+        print("\n")
     elif (st_all - st_take) > 0 :
-            st_all = st_all - st_take
-            print("There are ",st_all," sticks in the pile.")
-            print("\n")
+        st_all = st_all - st_take
+        print("There are ",st_all," sticks in the pile.")
+        print("\n")
     else :
-            st_all = st_all - st_take
-            print(user_name + ", take the last stick")
-            print("\n")
-            print("I, smart computer, win")
+        st_all = st_all - st_take
+        print(user_name + ", take the last stick")
+        print("\n")
+        print("I, smart computer, win")
+    
 '''   
 # Crate Function condition and calculation.(Computer Random Mode)     
 def com_random_mode_turn():
@@ -90,6 +91,7 @@ def com_ai_mode_turn():
 setup_stp_pname()
 while st_all > 0:
     com_ai_mode_turn()
-    player_turn()
+    if st_all > 0:
+        player_turn()
 
     
