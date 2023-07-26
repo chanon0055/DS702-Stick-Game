@@ -38,36 +38,16 @@ def player_turn():
         print("\n")
         print("I, smart computer, win")
     
-'''   
-# Crate Function condition and calculation.(Computer Random Mode)     
-def com_random_mode_turn():
-    global random_number, st_all 
-    random_number = random.randint(1, 2)
-    if st_take >= 3 :
-        print()
-    elif st_take <= 0 :
-        print()
-    elif st_all > 0 :
-        st_pc_take = random_number
-        while st_pc_take > st_all :
-           st_pc_take = random_number 
-        if (st_all - st_pc_take) > 0 :
-               print("I, smart computer, take : " + str(st_pc_take))
-               st_all = st_all - st_pc_take
-               print("There are " + str(st_all) + " sticks in the pile.")
-               print("\n")
-        else :
-            st_all = st_all - st_pc_take
-            print("I, smart computer, takes the last stick.\n")
-            print(user_name + " win (I, smart computer, am sad T_T)")
-'''
+
             
 # Crate Function condition and calculation.(AI Mode)
 def com_ai_mode_turn():
     global st_all, magic_number, check_magic_num, st_ai_take
     random_number = random.randint(1, 2)
     magic_number = (st_all-1)%3
-    if magic_number != 0 :
+    if st_take not in [1,2] :
+        print()    
+    elif magic_number != 0 :
             st_ai_take = 2
             check_magic_num = ((st_all-st_ai_take)-1)%3
             if check_magic_num != 0:
@@ -87,7 +67,7 @@ def com_ai_mode_turn():
             print("AI, takes the last stick.")
             print(user_name + " win (AI sad T_T)")
             
-
+st_take = 1
 setup_stp_pname()
 while st_all > 0:
     com_ai_mode_turn()
